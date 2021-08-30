@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0AE5AA5EC2AED11F90F935BB /* Pods_TestTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1DD19EDAE84B0AB3AB93CF /* Pods_TestTwo.framework */; };
+		8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */; };
 		9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */; };
 		9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8726DA691400D4DD87 /* ViewController.swift */; };
 		9D8FAD8D26DA691C00D4DD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarViewController.swift; sourceTree = "<group>"; };
 		9D8FAD8026DA691400D4DD87 /* TestTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8FAD8726DA691400D4DD87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +85,6 @@
 				A177F310387809869E043834 /* Pods-TestTwo.debug.xcconfig */,
 				F88093EB93B1D35ACB9C1AF0 /* Pods-TestTwo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -114,6 +115,7 @@
 			children = (
 				9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */,
 				9D8FAD8726DA691400D4DD87 /* ViewController.swift */,
+				8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */,
 				9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */,
 				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
 				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
@@ -320,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */,
 				9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */,
 				9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */,
 			);
