@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import SwiftyJSON
 
 class ViewController: BaseViewController {
 
@@ -56,6 +57,22 @@ class ViewController: BaseViewController {
             print("网络异常")
         })
     }
+    
+    private func loadSlidesListData() {
+        // 首页列表数据
+        NetWorkRequest(.homeGoodsList(parameters: ["lon":"116.47118377685547","lat":"39.91233444213867"]),isCarch: true, completion: { (responseString) -> (Void) in
+            // 轮播图数据
+            let json = JSON(responseString)
+            print(json)
+
+        }, failed: { (failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+        }, errorResult: { () -> (Void) in
+            print("网络异常")
+        })
+
+    }
+
 
 }
 extension ViewController : UITableViewDelegate{
