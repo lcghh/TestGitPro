@@ -11,6 +11,7 @@ PODS:
   - RAMAnimatedTabBarController (5.0.1)
   - Result (4.1.0)
   - SnapKit (5.0.1)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - HandyJSON
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - ObjectMapper
   - RAMAnimatedTabBarController
   - SnapKit
+  - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -30,6 +32,8 @@ SPEC REPOS:
     - RAMAnimatedTabBarController
     - Result
     - SnapKit
+  trunk:
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
@@ -40,7 +44,8 @@ SPEC CHECKSUMS:
   RAMAnimatedTabBarController: ec36fba2fa4679fd36db55098e3477fe9bd79f52
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 768c6950d455f4881791c20578a25ea9f25df8c1
+PODFILE CHECKSUM: 461a7d4a64025f6f870d23bb4141b50f4a98c16b
 
 COCOAPODS: 1.10.2

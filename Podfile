@@ -11,5 +11,6 @@ pod 'HandyJSON'
 pod 'Kingfisher'
 pod 'RAMAnimatedTabBarController'
 pod 'SnapKit'
+pod 'SwiftyJSON'
 
 end

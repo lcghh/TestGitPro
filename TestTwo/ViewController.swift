@@ -29,13 +29,32 @@ class ViewController: BaseViewController {
         view.addSubview(tableView)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadBelowListData()
+    }
     func defineLayout() -> Void {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view)
         }
     }
     @objc func jumpToNextVC() -> Void {
-        navigationController?.pushViewController(BaseViewController(), animated: true)
+        navigationController?.pushViewController(ViewController(), animated: true)
+    }
+    
+    // 列表数据
+    private func loadBelowListData() -> Void {
+        // 首页列表数据
+        NetWorkRequest(.homePageBelowConten(parameters: ["page":1]),isCarch: true,carchID: "page-\(1)" as NSString, completion: { (responseString) -> (Void) in
+            // 轮播图数据
+           
+                print(responseString)
+            
+        }, failed: { (failedResutl) -> (Void) in
+            print("服务器返回code不为0000啦~\(failedResutl)")
+        }, errorResult: { () -> (Void) in
+            print("网络异常")
+        })
     }
 
 }

@@ -13,6 +13,10 @@
 		8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */; };
 		8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */; };
 		8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37126DC95CA00CB0168 /* BaseViewController.swift */; };
+		8899E37426DCABF200CB0168 /* HomeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37326DCABF200CB0168 /* HomeProvider.swift */; };
+		8899E37626DCB18D00CB0168 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37526DCB18D00CB0168 /* NetworkManager.swift */; };
+		8899E37826DCB1A100CB0168 /* MoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37726DCB1A100CB0168 /* MoyaConfig.swift */; };
+		8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37926DCB1B600CB0168 /* APIProvider.swift */; };
 		9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */; };
 		9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8726DA691400D4DD87 /* ViewController.swift */; };
 		9D8FAD8D26DA691C00D4DD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 		8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageViewController.swift; sourceTree = "<group>"; };
 		8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusViewController.swift; sourceTree = "<group>"; };
 		8899E37126DC95CA00CB0168 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		8899E37326DCABF200CB0168 /* HomeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProvider.swift; sourceTree = "<group>"; };
+		8899E37526DCB18D00CB0168 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8899E37726DCB1A100CB0168 /* MoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaConfig.swift; sourceTree = "<group>"; };
+		8899E37926DCB1B600CB0168 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		9D8FAD8026DA691400D4DD87 /* TestTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8FAD8726DA691400D4DD87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +136,10 @@
 				8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */,
 				8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */,
 				8899E37126DC95CA00CB0168 /* BaseViewController.swift */,
+				8899E37326DCABF200CB0168 /* HomeProvider.swift */,
+				8899E37526DCB18D00CB0168 /* NetworkManager.swift */,
+				8899E37726DCB1A100CB0168 /* MoyaConfig.swift */,
+				8899E37926DCB1B600CB0168 /* APIProvider.swift */,
 				9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */,
 				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
 				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
@@ -334,11 +346,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8899E37626DCB18D00CB0168 /* NetworkManager.swift in Sources */,
 				8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */,
 				8899E36C26DC83BD00CB0168 /* BaseNavigationViewController.swift in Sources */,
 				9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */,
+				8899E37426DCABF200CB0168 /* HomeProvider.swift in Sources */,
+				8899E37826DCB1A100CB0168 /* MoyaConfig.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
+				8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */,
 				8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */,
 				9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */,
 			);
