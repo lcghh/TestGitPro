@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0AE5AA5EC2AED11F90F935BB /* Pods_TestTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1DD19EDAE84B0AB3AB93CF /* Pods_TestTwo.framework */; };
 		8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */; };
+		8899E36C26DC83BD00CB0168 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */; };
+		8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */; };
+		8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */; };
 		9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */; };
 		9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8726DA691400D4DD87 /* ViewController.swift */; };
 		9D8FAD8D26DA691C00D4DD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarViewController.swift; sourceTree = "<group>"; };
+		8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageViewController.swift; sourceTree = "<group>"; };
+		8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusViewController.swift; sourceTree = "<group>"; };
 		9D8FAD8026DA691400D4DD87 /* TestTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8FAD8726DA691400D4DD87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,9 @@
 				9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */,
 				9D8FAD8726DA691400D4DD87 /* ViewController.swift */,
 				8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */,
+				8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */,
+				8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */,
+				8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */,
 				9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */,
 				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
 				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
@@ -323,7 +332,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */,
+				8899E36C26DC83BD00CB0168 /* BaseNavigationViewController.swift in Sources */,
 				9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */,
+				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
+				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
 				9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,6 +506,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8965R53VV;
 				INFOPLIST_FILE = TestTwo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -515,6 +528,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = D8965R53VV;
 				INFOPLIST_FILE = TestTwo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (

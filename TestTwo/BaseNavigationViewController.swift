@@ -1,20 +1,20 @@
 //
-//  ViewController.swift
+//  BaseNavigationViewController.swift
 //  TestTwo
 //
-//  Created by lichao on 2021/8/28.
+//  Created by YSB-lc on 2021/8/30.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.white;
     }
+    
 
-
+   
 }
-
