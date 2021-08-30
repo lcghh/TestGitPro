@@ -14,7 +14,7 @@ class BaseTabbarViewController: UITabBarController {
         super.viewDidLoad()
         tabBar.tintColor = UIColor(red: 9/255.0, green: 187/255.0, blue: 7/255.0, alpha: 1)
         // Do any additional setup after loading the view.
-        configTabbar()
+//        configTabbar()
         configViewControllers();
     }
     override func viewDidLayoutSubviews() {
@@ -43,7 +43,7 @@ class BaseTabbarViewController: UITabBarController {
     
     
     func configViewControllers() -> Void {
-        let wechat = OrdersStatusViewController()
+        let wechat = BaseNavigationViewController(rootViewController: OrdersStatusViewController())
         // 未选中状态Tab图片
         wechat.tabBarItem.image = UIImage(named: "tab1")?.withRenderingMode(.alwaysOriginal)
         // 选中状态Tab图片
@@ -52,17 +52,17 @@ class BaseTabbarViewController: UITabBarController {
         wechat.tabBarItem.title = "微信"
         
         
-        let addressBook = ViewController()
+        let addressBook = BaseNavigationViewController(rootViewController: ViewController())
         addressBook.tabBarItem.image = UIImage(named: "tab2")?.withRenderingMode(.alwaysOriginal)
         addressBook.tabBarItem.selectedImage = UIImage(named: "selectTab2")?.withRenderingMode(.alwaysOriginal)
         addressBook.tabBarItem.title = "通讯录"
         
-        let find = ViewController()
+        let find = BaseNavigationViewController(rootViewController: ViewController())
         find.tabBarItem.image = UIImage(named: "tab3")?.withRenderingMode(.alwaysOriginal)
         find.tabBarItem.selectedImage = UIImage(named: "selectTab3")?.withRenderingMode(.alwaysOriginal)
         find.tabBarItem.title = "发现"
         
-        let mine = ViewController()
+        let mine = BaseNavigationViewController(rootViewController: ViewController())
         mine.tabBarItem.image = UIImage(named: "tab4")?.withRenderingMode(.alwaysOriginal)
         find.tabBarItem.selectedImage = UIImage(named: "selectTab4")?.withRenderingMode(.alwaysOriginal)
         mine.tabBarItem.title = "我的"

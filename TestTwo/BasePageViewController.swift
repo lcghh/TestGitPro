@@ -102,7 +102,7 @@ extension BasePageViewController {
     fileprivate func setupPageViewController() {
         dataSource = self
         delegate = self
-        automaticallyAdjustsScrollViewInsets = false
+//        automaticallyAdjustsScrollViewInsets = false
 
         setViewControllers([tabItems[beforeIndex].viewController],
                            direction: .forward,

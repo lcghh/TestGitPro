@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootVC = BaseTabbarViewController();
         keyWindow = UIWindow(frame: UIScreen.main.bounds)
         keyWindow?.rootViewController = rootVC
+        keyWindow?.backgroundColor = UIColor.white
         keyWindow?.makeKeyAndVisible()
         
         return true
