@@ -23,6 +23,63 @@ var parmeterStr: String = ""
 
 
 /// 网络请求的基本设置,这里可以拿到是具体的哪个网络请求，可以在这里做一些设置
+private let YSBEndpointClosure = { (target: YSBAPI) -> Endpoint in
+    /// 这里把endpoint重新构造一遍主要为了解决网络请求地址里面含有? 时无法解析的bug
+    let url = target.baseURL.absoluteString + target.path
+    var task = target.task
+    /*
+     如果需要在每个请求中都添加类似token参数的参数请取消注释下面代码
+     */
+    let additionalParameters:[String : Any] = ["token":"143dec112d674d78953c99454adf1b12",
+                                "version":"5.5.0",
+                                "modelName":"iPhone12,8",
+                                "wholesale_id":1079617647,
+                                "invokePath":"WSGrandViewController",
+                                "currentPath":"WholeSaleDrugDetailViewController",
+                                "ueDeviceId":"0873072806f152fa2cf3e901e3091b1bd9b694f1",
+                                "platform":"iOS",
+                                "page":1,
+                                "pagesize":30
+    ]
+    let defaultEncoding = JSONEncoding.default
+    switch target.task {
+        ///在你需要添加的请求方式中做修改就行，不用的case 可以删掉。。
+    case .requestPlain:
+        task = .requestParameters(parameters: additionalParameters, encoding: defaultEncoding)
+    case .requestParameters(var parameters, let encoding):
+        additionalParameters.forEach { parameters[$0.key] = $0.value }
+        task = .requestParameters(parameters: parameters, encoding: encoding)
+    case .requestCompositeParameters(bodyParameters:var parameters, bodyEncoding: let econding, urlParameters: let pathParams):
+        additionalParameters.forEach { parameters[$0.key] = $0.value }
+        task = .requestCompositeParameters(bodyParameters: additionalParameters, bodyEncoding: econding, urlParameters: pathParams)
+
+    default:
+        break
+    }
+    /*
+     如果需要在每个请求中都添加类似token参数的参数请取消注释上面代码
+     */
+
+    var endpoint = Endpoint(
+        url: url,
+        sampleResponseClosure: { .networkResponse(200, target.sampleData) },
+        method: target.method,
+        task: task,
+        httpHeaderFields: target.headers
+    )
+    requestTimeOut = 30 // 每次请求都会调用endpointClosure 到这里设置超时时长 也可单独每个接口设置
+//    switch target {
+//    case .homeGoodsList:
+//        return endpoint
+//    case .homePageBelowConten:
+//        requestTimeOut = 5
+//        return endpoint
+//    default:
+//    }
+    return endpoint
+}
+
+/// 网络请求的基本设置,这里可以拿到是具体的哪个网络请求，可以在这里做一些设置
 private let myEndpointClosure = { (target: API) -> Endpoint in
     /// 这里把endpoint重新构造一遍主要为了解决网络请求地址里面含有? 时无法解析的bug
     let url = target.baseURL.absoluteString + target.path
@@ -143,6 +200,8 @@ private let networkPlugin = NetworkActivityPlugin.init { changeType, _ in
 /// /网络请求发送的核心初始化方法，创建网络请求对象
 let Provider = MoyaProvider<API>(endpointClosure: myEndpointClosure, requestClosure: requestClosure, plugins: [networkPlugin], trackInflights: false)
 
+let YSBProvider = MoyaProvider<YSBAPI>(endpointClosure: YSBEndpointClosure, requestClosure: requestClosure, plugins: [networkPlugin], trackInflights: false)
+
 /// 最常用的网络请求，只需知道正确的结果无需其他操作时候用这个 (可以给调用的NetWorkReques方法的写参数默认值达到一样的效果,这里为解释方便做抽出来二次封装)
 ///
 /// - Parameters:
@@ -160,6 +219,10 @@ func NetWorkRequest(_ target: API, completion: @escaping successCallback) {
 ///   - failed: 请求失败的回调
 func NetWorkRequest(_ target: API, completion: @escaping successCallback, failed: failedCallback?) {
     NetWorkRequest(target, completion: completion, failed: failed, errorResult: nil)
+}
+
+func YSBNetWorkRequest(_ target: YSBAPI, completion: @escaping successCallback, failed: failedCallback?) {
+    YSBNetWorkRequest(target, isCarch: false, carchID: "", completion: completion, failed: failed, errorResult: nil)
 }
 
 
@@ -251,6 +314,81 @@ func NetWorkRequest(_ target: API, isCarch: Bool = false, carchID: NSString = ""
         }
     }
 }
+
+@discardableResult
+func YSBNetWorkRequest(_ target: YSBAPI, isCarch: Bool = false, carchID: NSString = "", completion: @escaping successCallback, failed: failedCallback?, errorResult: errorCallback?) -> Cancellable? {
+    
+    // 先判断网络是否有链接 没有的话直接返回--代码略
+    /*
+     if !UIDevice.isNetworkConnect {
+         print("提示用户网络似乎出现了问题")
+         return nil
+     }
+     */
+    
+//    /// 缓存代码 设置缓存路径
+//    let pathcaches = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
+//    let cachesDir = pathcaches[0]
+//
+//    let mutableSting = target.baseURL.absoluteString + target.path + (carchID as String)
+//    let lastStr = mutableSting.replacingOccurrences(of: "/", with: "-")
+//    let disPath = cachesDir + "/" + lastStr + "-.text"
+//    if isCarch == true {
+//        DispatchQueue.global().async {
+//            do {
+//                /// 获取json字符串
+//                let str = try String .init(contentsOfFile: disPath, encoding: String.Encoding.utf8)
+//                DispatchQueue.main.async {
+//                    /// 字符串转化为data
+//                    let data = str .data(using: String.Encoding.utf8, allowLossyConversion: true)
+//                    completion(data! as NSData)
+//                }
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
+    
+    return YSBProvider.request(target) { result in
+        // 隐藏hud
+        switch result {
+        case let .success(response):
+            do {
+                let jsonData = try JSON(data: response.data)
+                print(jsonData)
+                
+//                if isCarch == true {
+//                    // 缓存
+//                    let jsonStr = String(data: response.data, encoding: String.Encoding.utf8) ?? ""
+//                    DispatchQueue.global().async {
+//                        do {
+//                            try jsonStr .write(toFile: disPath, atomically: true, encoding: String.Encoding.utf8)
+//                        } catch {
+//                            print(error)
+//                        }
+//                    }
+//                }
+                /// 这里的completion和failed判断条件依据不同项目来做，为演示demo我把判断条件注释了，直接返回completion。
+
+                completion(response.data as NSData)
+
+                print("flag不为1000 HUD显示后台返回message" + "\(jsonData[RESULT_MESSAGE].stringValue)")
+
+                if jsonData[RESULT_CODE].stringValue == "1000"{
+                    completion(response.data as NSData)
+                }else{
+//                    failed?(String(data: try! response.mapJSON() as! Data, encoding: String.Encoding.utf8)!)
+                }
+
+            } catch {}
+        case let .failure(error):
+            // 网络连接失败，提示用户
+            print("网络连接失败\(error)")
+            errorResult?()
+        }
+    }
+}
+
 
 
 

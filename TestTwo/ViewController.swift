@@ -32,7 +32,9 @@ class ViewController: BaseViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadBelowListData()
+//        loadBelowListData()
+        
+        getYSBProductDetail()
     }
     func defineLayout() -> Void {
         tableView.snp.makeConstraints { make in
@@ -71,6 +73,21 @@ class ViewController: BaseViewController {
             print("网络异常")
         })
 
+    }
+    
+    func getYSBProductDetail() -> Void {
+        YSBNetWorkRequest(.YSBGoodDetail(parameters: [:])) { data in
+            if data.length > 0 {
+            }
+            
+            
+        } failed: { failreult in
+            
+        } errorResult: {
+            
+        }
+        
+    
     }
 
 
