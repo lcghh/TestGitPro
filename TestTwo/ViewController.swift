@@ -34,7 +34,13 @@ class ViewController: BaseViewController {
         super.viewWillAppear(animated)
 //        loadBelowListData()
         
-        getYSBProductDetail()
+//        getYSBProductDetail()
+        
+        do {
+            try testJsonToModel()
+        } catch _ {
+            print("解析失败")
+        }
     }
     func defineLayout() -> Void {
         tableView.snp.makeConstraints { make in
@@ -88,6 +94,27 @@ class ViewController: BaseViewController {
         }
         
     
+    }
+    
+    func testJsonToModel() throws -> Void {
+        
+//        let student = Student(name: "wahahahaha", grace: "18年级")
+        
+        let array = [Student(name: "wahahahaha", grace: "18年级"),
+                     Student(name: "wahahahaha", grace: "16年级"),
+                     Student(name: "wahahahaha", grace: "15年级"),
+                     Student(name: "wahahahaha", grace: "14年级")]
+        
+        let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
+        
+        let data = try encoder.encode(array)
+        
+        let arrayModels = try getArrayModels(from: data, modelType: Student.self)
+        
+        
+        print(arrayModels)
+        
     }
 
 

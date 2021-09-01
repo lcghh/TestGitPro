@@ -23,6 +23,8 @@
 		9D8FAD9026DA691C00D4DD87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */; };
 		9D8FAD9B26DA691D00D4DD87 /* TestTwoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD9A26DA691D00D4DD87 /* TestTwoTests.swift */; };
 		9D8FADA626DA691D00D4DD87 /* TestTwoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADA526DA691D00D4DD87 /* TestTwoUITests.swift */; };
+		9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */; };
+		9D8FADBF26DFBFEA00D4DD87 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBE26DFBFE900D4DD87 /* Student.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		9D8FADA126DA691D00D4DD87 /* TestTwoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestTwoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8FADA526DA691D00D4DD87 /* TestTwoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTwoUITests.swift; sourceTree = "<group>"; };
 		9D8FADA726DA691D00D4DD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseJsonToObjectTool.swift; sourceTree = "<group>"; };
+		9D8FADBE26DFBFE900D4DD87 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		A177F310387809869E043834 /* Pods-TestTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTwo.debug.xcconfig"; path = "Target Support Files/Pods-TestTwo/Pods-TestTwo.debug.xcconfig"; sourceTree = "<group>"; };
 		F88093EB93B1D35ACB9C1AF0 /* Pods-TestTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTwo.release.xcconfig"; path = "Target Support Files/Pods-TestTwo/Pods-TestTwo.release.xcconfig"; sourceTree = "<group>"; };
 		FF1DD19EDAE84B0AB3AB93CF /* Pods_TestTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +144,8 @@
 				8899E37726DCB1A100CB0168 /* MoyaConfig.swift */,
 				8899E37926DCB1B600CB0168 /* APIProvider.swift */,
 				8899E37D26DDCA6100CB0168 /* YSBAPIProvider.swift */,
+				9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */,
+				9D8FADBE26DFBFE900D4DD87 /* Student.swift */,
 				9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */,
 				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
 				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
@@ -353,9 +359,11 @@
 				8899E37826DCB1A100CB0168 /* MoyaConfig.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
+				9D8FADBF26DFBFEA00D4DD87 /* Student.swift in Sources */,
 				8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */,
 				8899E37E26DDCA6100CB0168 /* YSBAPIProvider.swift in Sources */,
 				8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */,
+				9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */,
 				9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
