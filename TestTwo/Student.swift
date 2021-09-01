@@ -12,3 +12,9 @@ public struct Student : Codable {
     var grace:String
     
 }
+
+public struct Result<T:Codable> : Codable{
+    var code:Int?
+    var data:T?
+    var message:String?
+}
