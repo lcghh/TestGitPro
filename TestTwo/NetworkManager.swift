@@ -21,6 +21,10 @@ typealias errorCallback = (() -> Void)
 var parmeterStr: String = ""
 
 
+let decoder = JSONDecoder()
+
+
+
 /// 网络请求的基本设置,这里可以拿到是具体的哪个网络请求，可以在这里做一些设置
 private let YSBEndpointClosure = { (target: YSBAPI) -> Endpoint in
     /// 这里把endpoint重新构造一遍主要为了解决网络请求地址里面含有? 时无法解析的bug
@@ -325,29 +329,6 @@ func YSBNetWorkRequest(_ target: YSBAPI, isCarch: Bool = false, carchID: NSStrin
      }
      */
     
-//    /// 缓存代码 设置缓存路径
-//    let pathcaches = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)
-//    let cachesDir = pathcaches[0]
-//
-//    let mutableSting = target.baseURL.absoluteString + target.path + (carchID as String)
-//    let lastStr = mutableSting.replacingOccurrences(of: "/", with: "-")
-//    let disPath = cachesDir + "/" + lastStr + "-.text"
-//    if isCarch == true {
-//        DispatchQueue.global().async {
-//            do {
-//                /// 获取json字符串
-//                let str = try String .init(contentsOfFile: disPath, encoding: String.Encoding.utf8)
-//                DispatchQueue.main.async {
-//                    /// 字符串转化为data
-//                    let data = str .data(using: String.Encoding.utf8, allowLossyConversion: true)
-//                    completion(data! as NSData)
-//                }
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
-    
     return YSBProvider.request(target) { result in
         // 隐藏hud
         switch result {
@@ -356,18 +337,7 @@ func YSBNetWorkRequest(_ target: YSBAPI, isCarch: Bool = false, carchID: NSStrin
                 let jsonData = try JSON(data: response.data)
                 print(jsonData)
                 
-//                if isCarch == true {
-//                    // 缓存
-//                    let jsonStr = String(data: response.data, encoding: String.Encoding.utf8) ?? ""
-//                    DispatchQueue.global().async {
-//                        do {
-//                            try jsonStr .write(toFile: disPath, atomically: true, encoding: String.Encoding.utf8)
-//                        } catch {
-//                            print(error)
-//                        }
-//                    }
-//                }
-                /// 这里的completion和failed判断条件依据不同项目来做，为演示demo我把判断条件注释了，直接返回completion。
+// 这里的completion和failed判断条件依据不同项目来做，为演示demo我把判断条件注释了，直接返回completion。
 
                 completion(response.data as NSData)
 
@@ -413,45 +383,50 @@ typealias RequestFailureCallback = ((_ code: Int?, _ message: String?) -> Void)
 ///   - successCallback: 网络请求成功的回调 转好的模型返回出来
 ///   - failureCallback: 网络请求失败的回调
 /// - Returns: 可取消网络请求的实例
-//@discardableResult
-//func NetWorkRequest<T: Mappable>(_ target: API, isHideFailAlert: Bool = false, modelType: T.Type?, successCallback: RequestSuccessCallback?, failureCallback: RequestFailureCallback? = nil) -> Cancellable? {
-//    // 这里显示loading图
-//    return Provider.request(target) { result in
-//        // 隐藏hud
-//        switch result {
-//        case let .success(response):
-//            do {
-//                let jsonData = try JSON(data: response.data)
-//                // data里面不返回数据 只是简单的网络请求 无需转模型
-//                if jsonData["data"].dictionaryObject == nil, jsonData["data"].arrayObject == nil { // 返回字符串
-//                    successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
-//                    return
-//                }
-//
-//                if jsonData["data"].dictionaryObject != nil { // 字典转model
-//                    if let model = T(JSONString: jsonData["data"].rawString() ?? "") {
-//                        successCallback?(model, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
-//                    } else {
-//                        failureCallback?(jsonData["data"].intValue, "解析失败")
-//                    }
-//                } else if jsonData["data"].arrayObject != nil { // 数组转model
-//                    if let model = [T](JSONString: jsonData["data"].rawString() ?? "") {
-//                        successCallback?(model, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
-//                    } else {
-//                        failureCallback?(jsonData["data"].intValue, "解析失败")
-//                    }
-//                }
+@discardableResult
+func NetWorkRequest<T: Codable>(_ target: API, isHideFailAlert: Bool = false, modelType: T.Type?, successCallback: RequestSuccessCallback?, failureCallback: RequestFailureCallback? = nil) -> Cancellable? {
+    // 这里显示loading图
+    return Provider.request(target) { result in
+        // 隐藏hud
+        switch result {
+        case let .success(response):
+            do {
+                let jsonData = try JSON(data: response.data)
+                // data里面不返回数据 只是简单的网络请求 无需转模型
+                if jsonData["data"].dictionaryObject == nil, jsonData["data"].arrayObject == nil { // 返回字符串
+                    successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
+                    return
+                }
+
+                if jsonData["data"].dictionaryObject != nil { // 字典转model
+                    do {
+                        let model = try decoder.decode(T.self, from: jsonData["data"].rawValue as! Data)
+                        successCallback?(model, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
+                    } catch _ {
+                        failureCallback?(jsonData["data"].intValue, "解析失败")
+                    }
+                    
+                } else if jsonData["data"].arrayObject != nil { // 数组转model
+                    
+                    do {
+                        let modelsArray = try decoder.decode([T].self, from: jsonData["data"].rawValue as! Data)
+                        successCallback?(modelsArray, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
+                    } catch _ {
+                        failureCallback?(jsonData["data"].intValue, "解析失败")
+                    }
+                    
+                }
                 
-//
-//                successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
-//            } catch {}
-//        case let .failure(error):
-//            // 网络连接失败，提示用户
-//            print("网络连接失败\(error)")
-//            failureCallback?(nil, "网络连接失败")
-//        }
-//    }
-//}
+
+                successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
+            } catch {}
+        case let .failure(error):
+            // 网络连接失败，提示用户
+            print("网络连接失败\(error)")
+            failureCallback?(nil, "网络连接失败")
+        }
+    }
+}
 
 /// 基于Alamofire,网络是否连接，，这个方法不建议放到这个类中,可以放在全局的工具类中判断网络链接情况
 /// 用计算型属性是因为这样才会在获取isNetworkConnect时实时判断网络链接请求，如有更好的方法可以fork
