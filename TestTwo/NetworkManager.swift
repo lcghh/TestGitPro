@@ -8,8 +8,7 @@
 import Foundation
 import Moya
 import SwiftyJSON
-import ObjectMapper
-//import SVProgressHUD
+
 
 // 超时时长
 private var requestTimeOut: Double = 30
@@ -414,15 +413,15 @@ typealias RequestFailureCallback = ((_ code: Int?, _ message: String?) -> Void)
 ///   - successCallback: 网络请求成功的回调 转好的模型返回出来
 ///   - failureCallback: 网络请求失败的回调
 /// - Returns: 可取消网络请求的实例
-@discardableResult
-func NetWorkRequest<T: Mappable>(_ target: API, isHideFailAlert: Bool = false, modelType: T.Type?, successCallback: RequestSuccessCallback?, failureCallback: RequestFailureCallback? = nil) -> Cancellable? {
-    // 这里显示loading图
-    return Provider.request(target) { result in
-        // 隐藏hud
-        switch result {
-        case let .success(response):
-            do {
-                let jsonData = try JSON(data: response.data)
+//@discardableResult
+//func NetWorkRequest<T: Mappable>(_ target: API, isHideFailAlert: Bool = false, modelType: T.Type?, successCallback: RequestSuccessCallback?, failureCallback: RequestFailureCallback? = nil) -> Cancellable? {
+//    // 这里显示loading图
+//    return Provider.request(target) { result in
+//        // 隐藏hud
+//        switch result {
+//        case let .success(response):
+//            do {
+//                let jsonData = try JSON(data: response.data)
 //                // data里面不返回数据 只是简单的网络请求 无需转模型
 //                if jsonData["data"].dictionaryObject == nil, jsonData["data"].arrayObject == nil { // 返回字符串
 //                    successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
@@ -443,16 +442,16 @@ func NetWorkRequest<T: Mappable>(_ target: API, isHideFailAlert: Bool = false, m
 //                    }
 //                }
                 
-                
-                successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
-            } catch {}
-        case let .failure(error):
-            // 网络连接失败，提示用户
-            print("网络连接失败\(error)")
-            failureCallback?(nil, "网络连接失败")
-        }
-    }
-}
+//
+//                successCallback?(jsonData["data"].string, jsonData["message"].stringValue, String(data: response.data, encoding: String.Encoding.utf8)!)
+//            } catch {}
+//        case let .failure(error):
+//            // 网络连接失败，提示用户
+//            print("网络连接失败\(error)")
+//            failureCallback?(nil, "网络连接失败")
+//        }
+//    }
+//}
 
 /// 基于Alamofire,网络是否连接，，这个方法不建议放到这个类中,可以放在全局的工具类中判断网络链接情况
 /// 用计算型属性是因为这样才会在获取isNetworkConnect时实时判断网络链接请求，如有更好的方法可以fork

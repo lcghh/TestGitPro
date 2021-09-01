@@ -5,11 +5,8 @@ target 'TestTwo' do
     use_frameworks!
   inhibit_all_warnings!
 
-pod 'ObjectMapper'
 pod 'Moya'
-pod 'HandyJSON'
 pod 'Kingfisher'
-pod 'RAMAnimatedTabBarController'
 pod 'SnapKit'
 pod 'SwiftyJSON'
 

@@ -7,7 +7,6 @@
 
 import Foundation
 import Moya
-import HandyJSON
 
 // 首页接口
 let APIProvider = MoyaProvider<API>()
