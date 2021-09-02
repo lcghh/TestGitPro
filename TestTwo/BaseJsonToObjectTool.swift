@@ -32,3 +32,14 @@ func getArrayModels<T:Codable>(from data:Data,modelType: T.Type?) -> [T]? {
     }
     return nil
 }
+
+func convertResponceData<T:Codable>(with data:Data,modelType:T.Type) -> Result<T>? {
+    
+    do {
+        let model:Result<T>? = try decoder.decode(Result<T>.self, from: data)
+        return model
+    } catch _ {
+        return nil
+    }
+//    return nil
+}

@@ -37,7 +37,8 @@ class ViewController: BaseViewController {
 //        getYSBProductDetail()
         
         do {
-            try testJsonToModel()
+//            try testJsonToModel()
+            try testResponceDataToModel()
         } catch _ {
             print("解析失败")
         }
@@ -114,6 +115,23 @@ class ViewController: BaseViewController {
         
         
         print(arrayModels)
+        
+    }
+    
+    func testResponceDataToModel() throws -> Void {
+        
+        let array = [Student(name: "wahahahaha", grace: "18年级"),
+                     Student(name: "wahahahaha", grace: "16年级"),
+                     Student(name: "wahahahaha", grace: "15年级"),
+                     Student(name: "wahahahaha", grace: "14年级")]
+        let responceResult = Result(code: 40001, data: array, message: "good for you")
+        
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(responceResult)
+        
+        let result = convertResponceData(with: data, modelType: [Student].self)
+        
+        print(result ?? "none value")
         
     }
 
