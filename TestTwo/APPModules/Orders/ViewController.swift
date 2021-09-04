@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import SwiftyJSON
 
 class ViewController: BaseViewController {
 
@@ -38,7 +37,8 @@ class ViewController: BaseViewController {
         
         do {
 //            try testJsonToModel()
-            try testResponceDataToModel()
+//            try testResponceDataToModel()
+            try testPropertyWrapper()
         } catch _ {
             print("解析失败")
         }
@@ -71,8 +71,7 @@ class ViewController: BaseViewController {
         // 首页列表数据
         NetWorkRequest(.homeGoodsList(parameters: ["lon":"116.47118377685547","lat":"39.91233444213867"]),isCarch: true, completion: { (responseString) -> (Void) in
             // 轮播图数据
-            let json = JSON(responseString)
-            print(json)
+            print("请求成功")
 
         }, failed: { (failedResutl) -> (Void) in
             print("服务器返回code不为0000啦~\(failedResutl)")
@@ -106,16 +105,16 @@ class ViewController: BaseViewController {
                      Student(name: "wahahahaha", grace: "15年级"),
                      Student(name: "wahahahaha", grace: "14年级")]
         
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = .prettyPrinted
-        
-        let data = try encoder.encode(array)
-        
-        let arrayModels = try getArrayModels(from: data, modelType: Student.self)
-        
-        
-        print(arrayModels)
-        
+//        let encoder = JSONEncoder()
+//        encoder.outputFormatting = .prettyPrinted
+//
+//        let data = try encoder.encode(array)
+//
+//        let arrayModels = try getArrayModels(from: data, modelType: Student.self)
+//
+//
+//        print(arrayModels)
+//
     }
     
     func testResponceDataToModel() throws -> Void {
@@ -126,13 +125,25 @@ class ViewController: BaseViewController {
                      Student(name: "wahahahaha", grace: "14年级")]
         let responceResult = Result(code: 40001, data: array, message: "good for you")
         
-        let encoder = JSONEncoder()
-        let data = try encoder.encode(responceResult)
+//        let encoder = JSONEncoder()
+//        let data = try encoder.encode(responceResult)
+//
+//        print(String(data: data, encoding: .utf8))
+//
+//        let result = convertResponceData(with: data, modelType: [Student].self)
+//
+//        print(result ?? "none value")
+        
+    }
+    
+    func testPropertyWrapper() -> Void {
+        let str = "{\"message\":\"good for you\",\"data\":[{\"name\":\"test----1\"},{\"name\":\"whatHow\",\"grace\":null},{\"name\":\"dame\",\"grace\":\"15年级\"},{\"name\":\"good\",\"grace\":\"14年级\"}],\"code\":40001}"
+        
+        let data = str.data(using: .utf8)!
         
         let result = convertResponceData(with: data, modelType: [Student].self)
         
-        print(result ?? "none value")
-        
+        print(result!)
     }
 
 

@@ -24,7 +24,7 @@
 		9D8FAD9B26DA691D00D4DD87 /* TestTwoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD9A26DA691D00D4DD87 /* TestTwoTests.swift */; };
 		9D8FADA626DA691D00D4DD87 /* TestTwoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADA526DA691D00D4DD87 /* TestTwoUITests.swift */; };
 		9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */; };
-		9D8FADBF26DFBFEA00D4DD87 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBE26DFBFE900D4DD87 /* Student.swift */; };
+		9D8FADBF26DFBFEA00D4DD87 /* DataToModelTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBE26DFBFE900D4DD87 /* DataToModelTool.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +67,7 @@
 		9D8FADA526DA691D00D4DD87 /* TestTwoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTwoUITests.swift; sourceTree = "<group>"; };
 		9D8FADA726DA691D00D4DD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseJsonToObjectTool.swift; sourceTree = "<group>"; };
-		9D8FADBE26DFBFE900D4DD87 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		9D8FADBE26DFBFE900D4DD87 /* DataToModelTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToModelTool.swift; sourceTree = "<group>"; };
 		A177F310387809869E043834 /* Pods-TestTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTwo.debug.xcconfig"; path = "Target Support Files/Pods-TestTwo/Pods-TestTwo.debug.xcconfig"; sourceTree = "<group>"; };
 		F88093EB93B1D35ACB9C1AF0 /* Pods-TestTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTwo.release.xcconfig"; path = "Target Support Files/Pods-TestTwo/Pods-TestTwo.release.xcconfig"; sourceTree = "<group>"; };
 		FF1DD19EDAE84B0AB3AB93CF /* Pods_TestTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +108,63 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9D79CA1926E3A7A500E3729C /* ModelTools */ = {
+			isa = PBXGroup;
+			children = (
+				9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */,
+				9D8FADBE26DFBFE900D4DD87 /* DataToModelTool.swift */,
+			);
+			path = ModelTools;
+			sourceTree = "<group>";
+		};
+		9D79CA1A26E3BEA500E3729C /* NetworkTools */ = {
+			isa = PBXGroup;
+			children = (
+				8899E37726DCB1A100CB0168 /* MoyaConfig.swift */,
+				8899E37926DCB1B600CB0168 /* APIProvider.swift */,
+				8899E37D26DDCA6100CB0168 /* YSBAPIProvider.swift */,
+				8899E37526DCB18D00CB0168 /* NetworkManager.swift */,
+			);
+			path = NetworkTools;
+			sourceTree = "<group>";
+		};
+		9D79CA1B26E3BF0500E3729C /* BaseUIConfig */ = {
+			isa = PBXGroup;
+			children = (
+				8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */,
+				8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */,
+				8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */,
+				8899E37126DC95CA00CB0168 /* BaseViewController.swift */,
+			);
+			path = BaseUIConfig;
+			sourceTree = "<group>";
+		};
+		9D79CA1C26E3BF2800E3729C /* Orders */ = {
+			isa = PBXGroup;
+			children = (
+				9D8FAD8726DA691400D4DD87 /* ViewController.swift */,
+				8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */,
+			);
+			path = Orders;
+			sourceTree = "<group>";
+		};
+		9D79CA1E26E3C17700E3729C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
+				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		9D79CA1F26E3C1E600E3729C /* APPModules */ = {
+			isa = PBXGroup;
+			children = (
+				9D79CA1C26E3BF2800E3729C /* Orders */,
+			);
+			path = APPModules;
+			sourceTree = "<group>";
+		};
 		9D8FAD7726DA691300D4DD87 = {
 			isa = PBXGroup;
 			children = (
@@ -134,21 +191,12 @@
 			isa = PBXGroup;
 			children = (
 				9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */,
-				9D8FAD8726DA691400D4DD87 /* ViewController.swift */,
-				8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */,
-				8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */,
-				8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */,
-				8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */,
-				8899E37126DC95CA00CB0168 /* BaseViewController.swift */,
-				8899E37526DCB18D00CB0168 /* NetworkManager.swift */,
-				8899E37726DCB1A100CB0168 /* MoyaConfig.swift */,
-				8899E37926DCB1B600CB0168 /* APIProvider.swift */,
-				8899E37D26DDCA6100CB0168 /* YSBAPIProvider.swift */,
-				9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */,
-				9D8FADBE26DFBFE900D4DD87 /* Student.swift */,
+				9D79CA1F26E3C1E600E3729C /* APPModules */,
+				9D79CA1B26E3BF0500E3729C /* BaseUIConfig */,
+				9D79CA1A26E3BEA500E3729C /* NetworkTools */,
+				9D79CA1926E3A7A500E3729C /* ModelTools */,
 				9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */,
-				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
-				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
+				9D79CA1E26E3C17700E3729C /* New Group */,
 			);
 			path = TestTwo;
 			sourceTree = "<group>";
@@ -359,7 +407,7 @@
 				8899E37826DCB1A100CB0168 /* MoyaConfig.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
-				9D8FADBF26DFBFEA00D4DD87 /* Student.swift in Sources */,
+				9D8FADBF26DFBFEA00D4DD87 /* DataToModelTool.swift in Sources */,
 				8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */,
 				8899E37E26DDCA6100CB0168 /* YSBAPIProvider.swift in Sources */,
 				8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */,
