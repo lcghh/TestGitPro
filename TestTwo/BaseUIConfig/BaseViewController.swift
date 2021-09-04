@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Toast_Swift
 
 class BaseViewController: UIViewController {
     
@@ -47,6 +48,12 @@ class BaseViewController: UIViewController {
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        self.view.makeToastActivity(.center)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.view.hideToastActivity()
+        }
+    }
     
 
 }
