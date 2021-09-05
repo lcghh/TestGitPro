@@ -17,11 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let rootVC = BaseTabbarViewController();
         keyWindow = UIWindow(frame: UIScreen.main.bounds)
-        keyWindow?.rootViewController = rootVC
-        keyWindow?.backgroundColor = UIColor.white
-        keyWindow?.makeKeyAndVisible()
+        keyWindow!.backgroundColor = UIColor.white
+        let rootVC = BaseTabbarViewController();
+        keyWindow!.rootViewController = rootVC
+        keyWindow!.makeKeyAndVisible()
         
         return true
     }

@@ -9,37 +9,58 @@ import UIKit
 
 class BaseTabbarViewController: UITabBarController {
 
-    private let tabbarBackgroundView = UIView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = UIColor(red: 9/255.0, green: 187/255.0, blue: 7/255.0, alpha: 1)
+        tabBar.tintColor = UIColor(hex: "#6487DA")
         // Do any additional setup after loading the view.
-//        configTabbar()
+        configTabbar()
         configViewControllers();
     }
-    override func viewDidLayoutSubviews() {
-            super.viewDidLayoutSubviews()
-            tabbarBackgroundView.frame = tabBar.frame
-        }
-
     
     func configTabbar() -> Void {
-        tabbarBackgroundView.layer.cornerRadius = 10
-        tabbarBackgroundView.backgroundColor = .white
-        tabbarBackgroundView.layer.shadowColor = UIColor.black.cgColor
-        tabbarBackgroundView.layer.shadowOffset = CGSize(width: 0, height: -5)
-        tabbarBackgroundView.layer.shadowRadius = 10
-        tabbarBackgroundView.clipsToBounds = false
-        tabbarBackgroundView.layer.shadowOpacity = 0.5
-        view.addSubview(tabbarBackgroundView)
-
-        view.bringSubviewToFront(tabBar)
-
-        tabBar.layer.cornerRadius = 20
-        tabBar.layer.masksToBounds = true
-
+        
+        tabBar.shadowImage = UIImage()
+        
+        let tabbarBackgroundView = UIView()
+        
+        let delegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        let tabbarHeight = 49.0 + delegate.keyWindow!.safeAreaInsets.bottom
+        
+        
+        
+        
+        // 圆角大小
+        tabbarBackgroundView.bounds = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: tabbarHeight)
+        let radius: CGFloat = 9;
+        // 圆角位置
+        let corner: UIRectCorner = [.topLeft, .topRight]
+        //frame可以先计算完成  避免圆角拉伸
+        let rect = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: tabbarHeight)
+        let path: UIBezierPath = UIBezierPath(roundedRect: rect, byRoundingCorners: corner, cornerRadii: CGSize(width: radius, height: radius))
+        let maskLayer: CAShapeLayer = CAShapeLayer()
+        maskLayer.frame = rect;
+        maskLayer.path = path.cgPath
+        tabbarBackgroundView.layer.mask = maskLayer;
+        
+        tabbarBackgroundView.backgroundColor = UIColor(hex: "#FFFFFF")
+       
+        
+        let image = getCustomTabbarImage(view: tabbarBackgroundView)
+        
+        UITabBar.appearance().backgroundImage = image;
+        
+        
     }
     
+    func getCustomTabbarImage(view:UIView) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, UIScreen.main.scale)
+        UIColor.clear.set()
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
     
     
     func configViewControllers() -> Void {

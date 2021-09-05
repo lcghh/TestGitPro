@@ -26,6 +26,8 @@
 		9D79CA3226E4AB4C00E3729C /* ElasticRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA2926E4AB4A00E3729C /* ElasticRefreshHeader.swift */; };
 		9D79CA3326E4AB4C00E3729C /* ElasticRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA2A26E4AB4A00E3729C /* ElasticRefreshControl.swift */; };
 		9D79CA3426E4AB4C00E3729C /* Left.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA2B26E4AB4A00E3729C /* Left.swift */; };
+		9D79CA3B26E4C45300E3729C /* UIColor+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA3926E4C45300E3729C /* UIColor+Hue.swift */; };
+		9D79CA3C26E4C45300E3729C /* UIImage+Hue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA3A26E4C45300E3729C /* UIImage+Hue.swift */; };
 		9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */; };
 		9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8726DA691400D4DD87 /* ViewController.swift */; };
 		9D8FAD8D26DA691C00D4DD87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		9D79CA2926E4AB4A00E3729C /* ElasticRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElasticRefreshHeader.swift; sourceTree = "<group>"; };
 		9D79CA2A26E4AB4A00E3729C /* ElasticRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElasticRefreshControl.swift; sourceTree = "<group>"; };
 		9D79CA2B26E4AB4A00E3729C /* Left.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Left.swift; sourceTree = "<group>"; };
+		9D79CA3926E4C45300E3729C /* UIColor+Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hue.swift"; sourceTree = "<group>"; };
+		9D79CA3A26E4C45300E3729C /* UIImage+Hue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Hue.swift"; sourceTree = "<group>"; };
 		9D8FAD8026DA691400D4DD87 /* TestTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D8FAD8726DA691400D4DD87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 		9D79CA2126E4AB4A00E3729C /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				9D79CA3926E4C45300E3729C /* UIColor+Hue.swift */,
+				9D79CA3A26E4C45300E3729C /* UIImage+Hue.swift */,
 				9D79CA2226E4AB4A00E3729C /* PullToRefreshKit */,
 			);
 			path = ThirdPart;
@@ -452,6 +458,7 @@
 				9D79CA3326E4AB4C00E3729C /* ElasticRefreshControl.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
+				9D79CA3B26E4C45300E3729C /* UIColor+Hue.swift in Sources */,
 				9D79CA2F26E4AB4C00E3729C /* Header.swift in Sources */,
 				9D79CA2E26E4AB4C00E3729C /* Availability.swift in Sources */,
 				9D8FADBF26DFBFEA00D4DD87 /* DataToModelTool.swift in Sources */,
@@ -460,6 +467,7 @@
 				8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */,
 				8899E37E26DDCA6100CB0168 /* YSBAPIProvider.swift in Sources */,
 				9D79CA3426E4AB4C00E3729C /* Left.swift in Sources */,
+				9D79CA3C26E4C45300E3729C /* UIImage+Hue.swift in Sources */,
 				8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */,
 				9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */,
 				9D79CA3126E4AB4C00E3729C /* Utils.swift in Sources */,
