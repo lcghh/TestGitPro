@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "订单页"
+        self.navigationItem.title = "订单页"
         self.addChild(orders)
         orders.didMove(toParent: self)
         self.view .addSubview(orders.view)
@@ -38,6 +38,9 @@ class HomeViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
    
 
