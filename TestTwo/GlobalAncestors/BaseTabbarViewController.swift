@@ -64,7 +64,9 @@ class BaseTabbarViewController: UITabBarController {
     
     
     func configViewControllers() -> Void {
-        let wechat = BaseNavigationViewController(rootViewController: OrdersStatusViewController())
+        
+        
+        let wechat = BaseNavigationViewController(rootViewController: HomeViewController())
         // 未选中状态Tab图片
         wechat.tabBarItem.image = UIImage(named: "tab1")?.withRenderingMode(.alwaysOriginal)
         // 选中状态Tab图片

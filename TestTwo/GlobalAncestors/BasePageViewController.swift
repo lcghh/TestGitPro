@@ -126,7 +126,8 @@ extension BasePageViewController {
         if let navigationBar = navigationController?.navigationBar {
             navigationBar.shadowImage = UIImage()
             navigationBar.setBackgroundImage(UIImage(), for: .default)
-            navigationBar.isTranslucent = true
+            navigationBar.isTranslucent = false
+            self.title = "首页"
         }
     }
 
@@ -211,7 +212,7 @@ extension BasePageViewController: UIScrollViewDelegate {
             index = tabItemsCount - 1
         }
 
-        let scrollOffsetX = scrollView.contentOffset.x - view.frame.width
+//        let scrollOffsetX = scrollView.contentOffset.x - view.frame.width
     }
 
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
