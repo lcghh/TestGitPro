@@ -170,13 +170,13 @@
 			path = OrdersRelatedModules;
 			sourceTree = "<group>";
 		};
-		9D79CA1E26E3C17700E3729C /* New Group */ = {
+		9D79CA1E26E3C17700E3729C /* SurportingFiles */ = {
 			isa = PBXGroup;
 			children = (
 				9D8FAD9126DA691C00D4DD87 /* Info.plist */,
 				9D8FAD8E26DA691C00D4DD87 /* LaunchScreen.storyboard */,
 			);
-			name = "New Group";
+			name = SurportingFiles;
 			sourceTree = "<group>";
 		};
 		9D79CA1F26E3C1E600E3729C /* APPRelatedModules */ = {
@@ -261,7 +261,7 @@
 				9D79CA1A26E3BEA500E3729C /* NetworkTools */,
 				9D79CA1926E3A7A500E3729C /* ModelTools */,
 				9D8FAD8C26DA691C00D4DD87 /* Assets.xcassets */,
-				9D79CA1E26E3C17700E3729C /* New Group */,
+				9D79CA1E26E3C17700E3729C /* SurportingFiles */,
 			);
 			path = TestTwo;
 			sourceTree = "<group>";
