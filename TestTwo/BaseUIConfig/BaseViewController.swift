@@ -49,10 +49,46 @@ class BaseViewController: UIViewController {
     
 
     override func viewDidAppear(_ animated: Bool) {
-        self.view.makeToastActivity(.center)
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.view.hideToastActivity()
-        }
+//        self.view.makeToastActivity(.center)
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//            self.view.hideToastActivity()
+//        }
+        
+        ToastManager.shared.isTapToDismissEnabled = false;
+        let showView = UIView.init()
+//        showView.center = self.view.center
+        showView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
+        showView.backgroundColor = UIColor(white: 0.0, alpha: 0.4)
+//        showView.layer.cornerRadius = 100
+//        showView.clipsToBounds = true
+        
+        let button = UIButton(type: .custom)
+        button.setTitle("test toast", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        button.center = showView.center;
+        button.frame = CGRect(x: 200, y: 200, width: 200, height: 200)
+        button.addTarget(self, action: #selector(testToast), for: .touchUpInside)
+        button.backgroundColor = .red
+        button.setTitleColor(.white, for: .normal)
+        
+        showView.addSubview(button)
+        
+//        self.view.showToast(showView, point: self.view.center)
+//        self.view.showToast(showView, duration: TimeInterval(60*60*24*360), point: self.view.center) { didTap in
+//            
+//        }
+//        
+        
+        
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//            self.view.hideAllToasts()
+//        }
+        
+    }
+    
+    @objc func testToast() -> Void {
+        print("handle something")
+        self.view.hideAllToasts()
     }
     
 

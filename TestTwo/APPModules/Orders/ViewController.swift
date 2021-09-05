@@ -22,6 +22,53 @@ class ViewController: BaseViewController {
         view.backgroundColor = UIColor.white;
         addSubviews()
         defineLayout()
+        configLoadMore()
+    }
+    
+    func configLoadMore() -> Void {
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+
+        //Header
+        let header = DefaultRefreshHeader.header()
+        header.setText("Pull to refresh", mode: .pullToRefresh)
+        header.setText("Release to refresh", mode: .releaseToRefresh)
+        header.setText("Success", mode: .refreshSuccess)
+        header.setText("Refreshing...", mode: .refreshing)
+        header.setText("Failed", mode: .refreshFailure)
+        header.tintColor = UIColor.orange
+        header.imageRenderingWithTintColor = true
+        header.durationWhenHide = 0.4
+        self.tableView.configRefreshHeader(with: header,container:self) { [weak self] in
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                guard let vc = self else{
+                    return;
+                }
+                vc.tableView.reloadData()
+                vc.tableView.switchRefreshHeader(to: .normal(.success, 0.3))
+            }
+
+        };
+        let footer = DefaultRefreshFooter.footer()
+        footer.setText("Pull up to refresh", mode: .pullToRefresh)
+        footer.setText("No data any more", mode: .noMoreData)
+        footer.setText("Refreshing...", mode: .refreshing)
+        footer.setText("Tap to load more", mode: .tapToRefresh)
+        footer.textLabel.textColor  = UIColor.orange
+        footer.refreshMode = .scrollAndTap
+        self.tableView.configRefreshFooter(with: footer,container:self) { [weak self] in
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                guard let vc = self else{
+                    return;
+                }
+                vc.tableView.reloadData()
+//                vc.tableView.switchRefreshFooter(to: .removed)
+               
+                vc.tableView.switchRefreshFooter(to: .noMoreData)
+            }
+           
+        }
     }
     
     
