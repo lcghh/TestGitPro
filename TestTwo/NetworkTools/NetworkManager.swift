@@ -20,9 +20,6 @@ typealias errorCallback = (() -> Void)
 var parmeterStr: String = ""
 
 
-let decoder = JSONDecoder()
-
-
 
 /// 网络请求的基本设置,这里可以拿到是具体的哪个网络请求，可以在这里做一些设置
 private let YSBEndpointClosure = { (target: YSBAPI) -> Endpoint in
@@ -183,17 +180,8 @@ private let networkPlugin = NetworkActivityPlugin.init { changeType, _ in
     case .began:
         print("开始请求网络")
         
-//        SVProgressHUD .setDefaultMaskType(SVProgressHUDMaskType.clear)
-//        SVProgressHUD .setBackgroundLayerColor(UIColor .blue)
-//        SVProgressHUD .setDefaultStyle(SVProgressHUDStyle.light)
-//        SVProgressHUD .setForegroundColor(MainColor)
-//        SVProgressHUD .setDefaultAnimationType(SVProgressHUDAnimationType.flat)
-//        SVProgressHUD .show(withStatus: "加载中")
-//        SVProgressHUD .setMinimumDismissTimeInterval(20.0)
-        
     case .ended:
         print("结束")
-//        SVProgressHUD .dismiss()
     }
 }
 
@@ -340,7 +328,7 @@ typealias RequestFailureCallback = ((_ code: Int?, _ message: String?) -> Void)
 ///   - failureCallback: 网络请求失败的回调
 /// - Returns: 可取消网络请求的实例
 @discardableResult
-func NetWorkRequest<T: Codable>(_ target: API, isHideFailAlert: Bool = false, modelType: T.Type?, successCallback: RequestSuccessCallback?, failureCallback: RequestFailureCallback? = nil) -> Cancellable? {
+func NetWorkRequest<T: Decodable>(_ target: API, isHideFailAlert: Bool = false, modelType: T.Type?, successCallback: RequestSuccessCallback?, failureCallback: RequestFailureCallback? = nil) -> Cancellable? {
     // 这里显示loading图
     return Provider.request(target) { result in
         // 隐藏hud

@@ -14,9 +14,10 @@
 		8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */; };
 		8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37126DC95CA00CB0168 /* BaseViewController.swift */; };
 		8899E37626DCB18D00CB0168 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37526DCB18D00CB0168 /* NetworkManager.swift */; };
-		8899E37826DCB1A100CB0168 /* MoyaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37726DCB1A100CB0168 /* MoyaConfig.swift */; };
 		8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37926DCB1B600CB0168 /* APIProvider.swift */; };
 		8899E37E26DDCA6100CB0168 /* YSBAPIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E37D26DDCA6100CB0168 /* YSBAPIProvider.swift */; };
+		88A80D3726E5EA5F00942AC8 /* NetworkConstConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A80D3626E5EA5F00942AC8 /* NetworkConstConfig.swift */; };
+		88A80D3A26E5F4C700942AC8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A80D3926E5F4C700942AC8 /* LoginViewController.swift */; };
 		9D79CA2C26E4AB4C00E3729C /* PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA2326E4AB4A00E3729C /* PullToRefresh.swift */; };
 		9D79CA2D26E4AB4C00E3729C /* Footer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA2426E4AB4A00E3729C /* Footer.swift */; };
 		9D79CA2E26E4AB4C00E3729C /* Availability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D79CA2526E4AB4A00E3729C /* Availability.swift */; };
@@ -63,9 +64,10 @@
 		8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersStatusViewController.swift; sourceTree = "<group>"; };
 		8899E37126DC95CA00CB0168 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		8899E37526DCB18D00CB0168 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		8899E37726DCB1A100CB0168 /* MoyaConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaConfig.swift; sourceTree = "<group>"; };
 		8899E37926DCB1B600CB0168 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
 		8899E37D26DDCA6100CB0168 /* YSBAPIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YSBAPIProvider.swift; sourceTree = "<group>"; };
+		88A80D3626E5EA5F00942AC8 /* NetworkConstConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstConfig.swift; sourceTree = "<group>"; };
+		88A80D3926E5F4C700942AC8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9D79CA2326E4AB4A00E3729C /* PullToRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullToRefresh.swift; sourceTree = "<group>"; };
 		9D79CA2426E4AB4A00E3729C /* Footer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Footer.swift; sourceTree = "<group>"; };
 		9D79CA2526E4AB4A00E3729C /* Availability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Availability.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		88A80D3826E5F46B00942AC8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				88A80D3926E5F4C700942AC8 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		9757230948C9C86067B89E33 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,10 +154,10 @@
 		9D79CA1A26E3BEA500E3729C /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
-				8899E37726DCB1A100CB0168 /* MoyaConfig.swift */,
 				8899E37926DCB1B600CB0168 /* APIProvider.swift */,
 				8899E37D26DDCA6100CB0168 /* YSBAPIProvider.swift */,
 				8899E37526DCB18D00CB0168 /* NetworkManager.swift */,
+				88A80D3626E5EA5F00942AC8 /* NetworkConstConfig.swift */,
 			);
 			path = NetworkTools;
 			sourceTree = "<group>";
@@ -185,6 +195,7 @@
 		9D79CA1F26E3C1E600E3729C /* APPRelatedModules */ = {
 			isa = PBXGroup;
 			children = (
+				88A80D3826E5F46B00942AC8 /* Login */,
 				9D79CA1C26E3BF2800E3729C /* OrdersRelatedModules */,
 			);
 			path = APPRelatedModules;
@@ -474,7 +485,6 @@
 				8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */,
 				8899E36C26DC83BD00CB0168 /* BaseNavigationViewController.swift in Sources */,
 				9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */,
-				8899E37826DCB1A100CB0168 /* MoyaConfig.swift in Sources */,
 				9D79CA3326E4AB4C00E3729C /* ElasticRefreshControl.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
@@ -483,6 +493,7 @@
 				9D79CA2E26E4AB4C00E3729C /* Availability.swift in Sources */,
 				9D8FADBF26DFBFEA00D4DD87 /* DataToModelTool.swift in Sources */,
 				9D79CA2D26E4AB4C00E3729C /* Footer.swift in Sources */,
+				88A80D3726E5EA5F00942AC8 /* NetworkConstConfig.swift in Sources */,
 				9D79CA3026E4AB4C00E3729C /* Right.swift in Sources */,
 				8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */,
 				8899E37E26DDCA6100CB0168 /* YSBAPIProvider.swift in Sources */,
@@ -492,6 +503,7 @@
 				9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */,
 				9D79CA3126E4AB4C00E3729C /* Utils.swift in Sources */,
 				9D79CA3226E4AB4C00E3729C /* ElasticRefreshHeader.swift in Sources */,
+				88A80D3A26E5F4C700942AC8 /* LoginViewController.swift in Sources */,
 				9D8FAD8426DA691400D4DD87 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

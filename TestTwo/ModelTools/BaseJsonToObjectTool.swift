@@ -7,6 +7,7 @@
 
 import Foundation
 
+private let decoder = JSONDecoder()
 
 //func getArrayModels<T:Codable>(from data:Data,modelType: T.Type?) -> [T]? {
 //    

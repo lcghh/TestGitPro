@@ -8,9 +8,6 @@
 import Foundation
 import Moya
 
-// 首页接口
-let APIProvider = MoyaProvider<API>()
-
 
 enum API {
     case homeGoodsList(parameters:[String:Any]) // 首页上面列表
