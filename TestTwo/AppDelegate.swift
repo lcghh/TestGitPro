@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+   func loginSuccess() -> Void {
+        let rootVC = BaseTabbarViewController();
+        keyWindow!.rootViewController = rootVC
+    }
 
 
 }

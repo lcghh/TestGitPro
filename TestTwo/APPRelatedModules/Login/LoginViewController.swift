@@ -203,6 +203,12 @@ extension LoginViewController : UITextFieldDelegate{
             print("手机号无效")
             return
         }
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            let delegat:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            delegat.loginSuccess()
+        }
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
