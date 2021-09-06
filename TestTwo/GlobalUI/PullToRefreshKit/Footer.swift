@@ -78,7 +78,13 @@ public enum RefreshMode{
 
 open class DefaultRefreshFooter:UIView, RefreshableFooter{
     public static func footer()-> DefaultRefreshFooter{
-        return DefaultRefreshFooter()
+        let footer = DefaultRefreshFooter()
+        footer.setText("Pull up to refresh", mode: .pullToRefresh)
+        footer.setText("No data any more", mode: .noMoreData)
+        footer.setText("Refreshing...", mode: .refreshing)
+        footer.setText("Tap to load more", mode: .tapToRefresh)
+        footer.textLabel.textColor  = UIColor.orange
+        return footer
     }
     #if swift(>=4.2)
     public let spinner:UIActivityIndicatorView = UIActivityIndicatorView(style: .gray)

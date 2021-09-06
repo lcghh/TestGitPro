@@ -88,7 +88,17 @@ public enum RefreshKitHeaderText{
 open class DefaultRefreshHeader: UIView, RefreshableHeader {
     
     open class func header()->DefaultRefreshHeader{
-        return DefaultRefreshHeader();
+        
+        let header = DefaultRefreshHeader()
+        header.setText("Pull to refresh", mode: .pullToRefresh)
+        header.setText("Release to refresh", mode: .releaseToRefresh)
+        header.setText("Success", mode: .refreshSuccess)
+        header.setText("Refreshing...", mode: .refreshing)
+        header.setText("Failed", mode: .refreshFailure)
+        header.tintColor = UIColor.orange
+        header.imageRenderingWithTintColor = true
+        header.durationWhenHide = 0.4
+        return header;
     }
     
     open var imageRenderingWithTintColor = false{
