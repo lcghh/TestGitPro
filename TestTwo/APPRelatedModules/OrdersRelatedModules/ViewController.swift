@@ -8,12 +8,17 @@
 import UIKit
 import SnapKit
 
+
 class ViewController: BaseViewController {
 
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.estimatedRowHeight = 324.5
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.backgroundColor = UIColor(hex: "#F5F5F5")
+        tableView.register(OrderTableViewCell.self, forCellReuseIdentifier: "OrderTableViewCell")
         return tableView
     }()
     override func viewDidLoad() {
@@ -202,18 +207,15 @@ extension ViewController : UITableViewDelegate{
     }
 }
 extension ViewController : UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.backgroundColor = UIColor(white: CGFloat(arc4random() % 255) / 255.0, alpha: 1.0)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTableViewCell", for: indexPath)
+
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
     }
     
 }
