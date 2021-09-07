@@ -23,57 +23,75 @@ class OrderTableViewCell: UITableViewCell {
     
     func addSubviews() -> Void {
         contentView.addSubview(containView)
-        containView.addSubview(orderTitle)
-        containView.addSubview(statusBgView)
-        statusBgView.addSubview(orderStatusLabel)
+        containView.addSubview(clinicNameTitle)
+        containView.addSubview(rightArrow)
+        containView.addSubview(orderCountBgView)
+        orderCountBgView.addSubview(orderCountLabel)
         containView.addSubview(bgView)
-        bgView.addSubview(orderTimeLabel)
-        bgView.addSubview(patientNameLabel)
+        bgView.addSubview(addressLabel)
+        bgView.addSubview(takeOrderLabel)
+        containView.addSubview(line)
         containView.addSubview(orderAmountLabel)
     }
     func defineLayout() -> Void {
         containView.snp.makeConstraints { ConstraintMaker in
             ConstraintMaker.left.equalTo(contentView).offset(15.0)
             ConstraintMaker.right.equalTo(contentView).offset(-15.0)
-            ConstraintMaker.top.equalTo(contentView.snp.top).offset(10.0)
-            ConstraintMaker.bottom.equalTo(contentView).offset(0.0)
+            ConstraintMaker.top.equalTo(contentView.snp.top).offset(0.0)
+            ConstraintMaker.bottom.equalTo(contentView).offset(-10.0)
         }
-        orderTitle.snp.makeConstraints { ConstraintMaker in
+        clinicNameTitle.snp.makeConstraints { ConstraintMaker in
             ConstraintMaker.left.equalTo(containView).offset(15.0)
             ConstraintMaker.top.equalTo(containView).offset(18.0)
             ConstraintMaker.height.equalTo(20)
         }
-        statusBgView.snp.makeConstraints { ConstraintMaker in
-            ConstraintMaker.height.equalTo(20.0)
+        rightArrow.snp.makeConstraints { ConstraintMaker in
+            ConstraintMaker.height.equalTo(30.0)
             ConstraintMaker.right.equalTo(containView).offset(-15.0)
-            ConstraintMaker.centerY.equalTo(orderTitle)
-            ConstraintMaker.left.equalTo(orderStatusLabel).offset(-10.0)
+            ConstraintMaker.centerY.equalTo(clinicNameTitle)
+            ConstraintMaker.width.equalTo(30.0)
         }
-        orderStatusLabel.snp.makeConstraints { ConstraintMaker in
-            ConstraintMaker.right.equalTo(statusBgView).offset(-10.0)
-            ConstraintMaker.centerY.equalTo(orderTitle)
-        }
+        
         bgView.snp.makeConstraints { ConstraintMaker in
             ConstraintMaker.left.equalTo(containView).offset(15.0)
             ConstraintMaker.right.equalTo(containView).offset(-15.0)
-            ConstraintMaker.top.equalTo(orderTitle.snp.bottom).offset(18.0)
-            ConstraintMaker.bottom.equalTo(patientNameLabel.snp.bottom).offset(10)
+            ConstraintMaker.top.equalTo(clinicNameTitle.snp.bottom).offset(18.0)
+            ConstraintMaker.bottom.equalTo(addressLabel.snp.bottom).offset(10)
         }
-        orderTimeLabel.snp.makeConstraints { ConstraintMaker in
+        addressLabel.snp.makeConstraints { ConstraintMaker in
             ConstraintMaker.left.equalTo(bgView).offset(10.0)
+            ConstraintMaker.right.equalTo(bgView).offset(-10.0)
             ConstraintMaker.top.equalTo(bgView).offset(10.0)
-            ConstraintMaker.height.equalTo(20)
         }
-        patientNameLabel.snp.makeConstraints { ConstraintMaker in
-            ConstraintMaker.left.equalTo(orderTimeLabel)
-            ConstraintMaker.top.equalTo(orderTimeLabel.snp.bottom).offset(15.0)
-            ConstraintMaker.height.equalTo(20)
+
+        orderCountBgView.snp.makeConstraints { ConstraintMaker in
+            ConstraintMaker.height.equalTo(20.0)
+            ConstraintMaker.right.equalTo(orderCountLabel).offset(10.0)
+            ConstraintMaker.top.equalTo(bgView.snp.bottom).offset(10)
+            ConstraintMaker.left.equalTo(clinicNameTitle)
+        }
+        orderCountLabel.snp.makeConstraints { ConstraintMaker in
+            ConstraintMaker.left.equalTo(orderCountBgView).offset(10.0)
+            ConstraintMaker.centerY.equalTo(orderCountBgView)
         }
         
         orderAmountLabel.snp.makeConstraints { ConstraintMaker in
-            ConstraintMaker.left.equalTo(containView).offset(15.0)
-            ConstraintMaker.top.equalTo(bgView.snp.bottom).offset(12.0)
-            ConstraintMaker.bottom.equalTo(containView).offset(-20.0)
+            ConstraintMaker.right.equalTo(containView).offset(-15.0)
+            ConstraintMaker.centerY.equalTo(orderCountBgView)
+            ConstraintMaker.height.equalTo(20)
+        }
+        
+        line.snp.makeConstraints { ConstraintMaker in
+            ConstraintMaker.left.equalTo(clinicNameTitle)
+            ConstraintMaker.right.equalTo(rightArrow)
+            ConstraintMaker.top.equalTo(orderCountBgView.snp.bottom).offset(15.0)
+            ConstraintMaker.height.equalTo(0.5)
+        }
+        
+        takeOrderLabel.snp.makeConstraints { ConstraintMaker in
+            ConstraintMaker.left.equalTo(addressLabel)
+            ConstraintMaker.top.equalTo(line.snp.bottom).offset(15.0)
+            ConstraintMaker.bottom.equalTo(containView.snp.bottom).offset(-15.0)
             ConstraintMaker.height.equalTo(20)
         }
         
@@ -90,27 +108,29 @@ class OrderTableViewCell: UITableViewCell {
         return view
     }()
     
-    lazy var orderTitle:UILabel = {
+    lazy var clinicNameTitle:UILabel = {
         let label = UILabel()
-        label.text = "订单号CTL37548645745700"
+        label.text = "江记内科诊所"
         label.textColor = UIColor(hex: "#303133")
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
     
-    lazy var statusBgView:UIView = {
+    lazy var orderCountBgView:UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hex: "#FFF4E4")
+        view.backgroundColor = UIColor(hex: "#FFFFFF")
         view.layer.cornerRadius = 10.0
         view.clipsToBounds = true
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor(hex: "#6487DA").cgColor
         return view
     }()
     
-    lazy var orderStatusLabel:UILabel = {
+    lazy var orderCountLabel:UILabel = {
         let label = UILabel()
-        label.text = "退款中"
-        label.textColor = UIColor(hex: "#FF7A00")
-        label.font = UIFont.systemFont(ofSize: 11.5)
+        label.text = "待接单 10"
+        label.textColor = UIColor(hex: "#6487DA")
+        label.font = UIFont.systemFont(ofSize: 13.5)
         return label
     }()
     
@@ -120,18 +140,19 @@ class OrderTableViewCell: UITableViewCell {
         return view
     }()
     
-    lazy var orderTimeLabel:UILabel = {
+    lazy var addressLabel:UILabel = {
         let label = UILabel()
-        label.text = "下单时间：2021-06-12 13:54:09"
-        label.textColor = UIColor(hex: "#303133")
-        label.font = UIFont.systemFont(ofSize: 13.5)
+        label.text = "下单时间：2021-06-12 13:54:09下单时间：2021-06-12 13:54:09下单时间：2021-06-12 13:54:09下单时间：2021-06-12 13:54:09"
+        label.textColor = UIColor(hex: "#95989F")
+        label.font = UIFont.systemFont(ofSize: 13.0)
+        label.numberOfLines = 0
         return label
     }()
-    lazy var patientNameLabel:UILabel = {
+    lazy var takeOrderLabel:UILabel = {
         let label = UILabel()
-        label.text = "患者名称：罗杰斯"
+        label.text = "默认接单人:张快递 1523686654"
         label.textColor = UIColor(hex: "#303133")
-        label.font = UIFont.systemFont(ofSize: 13.5)
+        label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
     
@@ -141,6 +162,18 @@ class OrderTableViewCell: UITableViewCell {
         label.textColor = UIColor(hex: "#303133")
         label.font = UIFont.systemFont(ofSize: 14)
         return label
+    }()
+    
+    lazy var rightArrow:UIImageView = {
+        let rightArrow = UIImageView()
+        rightArrow.backgroundColor = .blue
+        return rightArrow
+    }()
+    
+    lazy var line:UIImageView = {
+        let line = UIImageView()
+        line.backgroundColor = UIColor(hex: "#DDE0E6")
+        return line
     }()
 
 }
