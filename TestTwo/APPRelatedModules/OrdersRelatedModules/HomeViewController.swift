@@ -15,8 +15,8 @@ class HomeViewController: UIViewController {
         return orders
     }()
     
-    lazy var topView:UIView = {
-        let view = UIView()
+    lazy var topView:TopOrderOperateView = {
+        let view = TopOrderOperateView()
         view.backgroundColor = .red
         return view
     }()
