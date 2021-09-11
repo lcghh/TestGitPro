@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0AE5AA5EC2AED11F90F935BB /* Pods_TestTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF1DD19EDAE84B0AB3AB93CF /* Pods_TestTwo.framework */; };
+		8834429D26EC794C0082A480 /* ScanNetAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429626EC794C0082A480 /* ScanNetAnimation.swift */; };
+		8834429E26EC794C0082A480 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429726EC794C0082A480 /* ScanView.swift */; };
+		8834429F26EC794C0082A480 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429826EC794C0082A480 /* ScanViewController.swift */; };
+		883442A026EC794C0082A480 /* ScanLineAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429926EC794C0082A480 /* ScanLineAnimation.swift */; };
+		883442A126EC794C0082A480 /* ScanViewStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429A26EC794C0082A480 /* ScanViewStyle.swift */; };
+		883442A226EC794C0082A480 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429B26EC794C0082A480 /* Permissions.swift */; };
+		883442A326EC794C0082A480 /* ScanWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8834429C26EC794C0082A480 /* ScanWrapper.swift */; };
+		883442A526EC79670082A480 /* CodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 883442A426EC79670082A480 /* CodeScan.bundle */; };
 		8899E36A26DC809700CB0168 /* BaseTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */; };
 		8899E36C26DC83BD00CB0168 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */; };
 		8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */; };
@@ -60,6 +68,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8834429626EC794C0082A480 /* ScanNetAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanNetAnimation.swift; sourceTree = "<group>"; };
+		8834429726EC794C0082A480 /* ScanView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		8834429826EC794C0082A480 /* ScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		8834429926EC794C0082A480 /* ScanLineAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanLineAnimation.swift; sourceTree = "<group>"; };
+		8834429A26EC794C0082A480 /* ScanViewStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewStyle.swift; sourceTree = "<group>"; };
+		8834429B26EC794C0082A480 /* Permissions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		8834429C26EC794C0082A480 /* ScanWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanWrapper.swift; sourceTree = "<group>"; };
+		883442A426EC79670082A480 /* CodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CodeScan.bundle; sourceTree = "<group>"; };
 		8899E36926DC809700CB0168 /* BaseTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabbarViewController.swift; sourceTree = "<group>"; };
 		8899E36B26DC83BD00CB0168 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		8899E36D26DC83DC00CB0168 /* BasePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePageViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +145,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8834429526EC794C0082A480 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8834429626EC794C0082A480 /* ScanNetAnimation.swift */,
+				8834429726EC794C0082A480 /* ScanView.swift */,
+				8834429826EC794C0082A480 /* ScanViewController.swift */,
+				8834429926EC794C0082A480 /* ScanLineAnimation.swift */,
+				8834429A26EC794C0082A480 /* ScanViewStyle.swift */,
+				8834429B26EC794C0082A480 /* Permissions.swift */,
+				8834429C26EC794C0082A480 /* ScanWrapper.swift */,
+				883442A426EC79670082A480 /* CodeScan.bundle */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		88A80D3826E5F46B00942AC8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -273,6 +304,7 @@
 		9D8FAD8226DA691400D4DD87 /* TestTwo */ = {
 			isa = PBXGroup;
 			children = (
+				8834429526EC794C0082A480 /* Source */,
 				9D79CA3D26E5013600E3729C /* Helpers */,
 				9D79CA2126E4AB4A00E3729C /* GlobalUI */,
 				9D8FAD8326DA691400D4DD87 /* AppDelegate.swift */,
@@ -418,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D8FAD9026DA691C00D4DD87 /* LaunchScreen.storyboard in Resources */,
+				883442A526EC79670082A480 /* CodeScan.bundle in Resources */,
 				9D8FAD8D26DA691C00D4DD87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -493,15 +526,21 @@
 				9D8FAD8826DA691400D4DD87 /* ViewController.swift in Sources */,
 				9D79CA4426E7B69800E3729C /* TopOrderOperateView.swift in Sources */,
 				9D79CA3326E4AB4C00E3729C /* ElasticRefreshControl.swift in Sources */,
+				883442A126EC794C0082A480 /* ScanViewStyle.swift in Sources */,
+				883442A026EC794C0082A480 /* ScanLineAnimation.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
 				9D79CA3B26E4C45300E3729C /* UIColor+Hue.swift in Sources */,
 				9D79CA2F26E4AB4C00E3729C /* Header.swift in Sources */,
+				8834429F26EC794C0082A480 /* ScanViewController.swift in Sources */,
 				9D79CA4226E65AAD00E3729C /* OrderTableViewCell.swift in Sources */,
+				883442A326EC794C0082A480 /* ScanWrapper.swift in Sources */,
 				9D79CA2E26E4AB4C00E3729C /* Availability.swift in Sources */,
 				9D8FADBF26DFBFEA00D4DD87 /* DataToModelTool.swift in Sources */,
 				9D79CA2D26E4AB4C00E3729C /* Footer.swift in Sources */,
+				8834429E26EC794C0082A480 /* ScanView.swift in Sources */,
 				88A80D3726E5EA5F00942AC8 /* NetworkConstConfig.swift in Sources */,
+				883442A226EC794C0082A480 /* Permissions.swift in Sources */,
 				9D79CA3026E4AB4C00E3729C /* Right.swift in Sources */,
 				8899E37A26DCB1B600CB0168 /* APIProvider.swift in Sources */,
 				8899E37E26DDCA6100CB0168 /* YSBAPIProvider.swift in Sources */,
@@ -509,6 +548,7 @@
 				9D79CA3C26E4C45300E3729C /* UIImage+Hue.swift in Sources */,
 				8899E37226DC95CA00CB0168 /* BaseViewController.swift in Sources */,
 				9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */,
+				8834429D26EC794C0082A480 /* ScanNetAnimation.swift in Sources */,
 				9D79CA3126E4AB4C00E3729C /* Utils.swift in Sources */,
 				9D79CA3226E4AB4C00E3729C /* ElasticRefreshHeader.swift in Sources */,
 				88A80D3A26E5F4C700942AC8 /* LoginViewController.swift in Sources */,
