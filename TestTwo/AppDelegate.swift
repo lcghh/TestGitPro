@@ -21,8 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         keyWindow!.backgroundColor = UIColor.white
         let rootVC = BaseTabbarViewController();
 //        let rootVC = LoginViewController();
-//        keyWindow!.rootViewController = rootVC
-        keyWindow?.rootViewController = scanVC()
+        keyWindow!.rootViewController = rootVC
+//        keyWindow?.rootViewController = scanVC()
         keyWindow!.makeKeyAndVisible()
         
         return true

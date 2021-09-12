@@ -91,10 +91,21 @@ class ViewController: BaseViewController {
         do {
 //            try testJsonToModel()
 //            try testResponceDataToModel()
-            try testPropertyWrapper()
+//            try testPropertyWrapper()
+            downLoad()
         } catch _ {
             print("解析失败")
         }
+    }
+    func downLoad() -> Void {
+        YSBNetWorkRequest(.loadPDF(url: "http://kmcs-ft.kingmed.com.cn:8070/km-platform-web/restful/fileDownload/848ae2fb-2cab-40b6-8b87-cacaa8da87da")) { data in
+            
+            print(String(data: data as Data, encoding: .utf8.self))
+            
+        } failed: { error in
+            
+        }
+
     }
     func defineLayout() -> Void {
         tableView.snp.makeConstraints { make in
