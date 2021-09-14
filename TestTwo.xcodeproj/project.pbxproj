@@ -48,6 +48,8 @@
 		9D8FADA626DA691D00D4DD87 /* TestTwoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADA526DA691D00D4DD87 /* TestTwoUITests.swift */; };
 		9D8FADBD26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */; };
 		9D8FADBF26DFBFEA00D4DD87 /* DataToModelTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8FADBE26DFBFE900D4DD87 /* DataToModelTool.swift */; };
+		9DFABB8F26EE4A1000339D04 /* QiniuUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DFABB8E26EE4A1000339D04 /* QiniuUploader.m */; };
+		9DFABB9226F0EA2500339D04 /* DashLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFABB9126F0EA2400339D04 /* DashLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +116,10 @@
 		9D8FADA726DA691D00D4DD87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D8FADBC26DFBC8B00D4DD87 /* BaseJsonToObjectTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseJsonToObjectTool.swift; sourceTree = "<group>"; };
 		9D8FADBE26DFBFE900D4DD87 /* DataToModelTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataToModelTool.swift; sourceTree = "<group>"; };
+		9DFABB8C26EE4A1000339D04 /* TestTwo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TestTwo-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DFABB8D26EE4A1000339D04 /* QiniuUploader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QiniuUploader.h; sourceTree = "<group>"; };
+		9DFABB8E26EE4A1000339D04 /* QiniuUploader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiniuUploader.m; sourceTree = "<group>"; };
+		9DFABB9126F0EA2400339D04 /* DashLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashLine.swift; sourceTree = "<group>"; };
 		A177F310387809869E043834 /* Pods-TestTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTwo.debug.xcconfig"; path = "Target Support Files/Pods-TestTwo/Pods-TestTwo.debug.xcconfig"; sourceTree = "<group>"; };
 		F88093EB93B1D35ACB9C1AF0 /* Pods-TestTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTwo.release.xcconfig"; path = "Target Support Files/Pods-TestTwo/Pods-TestTwo.release.xcconfig"; sourceTree = "<group>"; };
 		FF1DD19EDAE84B0AB3AB93CF /* Pods_TestTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +221,11 @@
 				8899E36F26DC859F00CB0168 /* OrdersStatusViewController.swift */,
 				9D79CA3F26E50B1100E3729C /* HomeViewController.swift */,
 				9D79CA4126E65AAC00E3729C /* OrderTableViewCell.swift */,
+				9DFABB9126F0EA2400339D04 /* DashLine.swift */,
 				9D79CA4326E7B69700E3729C /* TopOrderOperateView.swift */,
+				9DFABB8D26EE4A1000339D04 /* QiniuUploader.h */,
+				9DFABB8E26EE4A1000339D04 /* QiniuUploader.m */,
+				9DFABB8C26EE4A1000339D04 /* TestTwo-Bridging-Header.h */,
 			);
 			path = OrdersRelatedModules;
 			sourceTree = "<group>";
@@ -413,6 +423,7 @@
 				TargetAttributes = {
 					9D8FAD7F26DA691400D4DD87 = {
 						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
 					};
 					9D8FAD9526DA691D00D4DD87 = {
 						CreatedOnToolsVersion = 12.5;
@@ -530,8 +541,10 @@
 				883442A026EC794C0082A480 /* ScanLineAnimation.swift in Sources */,
 				8899E36E26DC83DC00CB0168 /* BasePageViewController.swift in Sources */,
 				8899E37026DC859F00CB0168 /* OrdersStatusViewController.swift in Sources */,
+				9DFABB8F26EE4A1000339D04 /* QiniuUploader.m in Sources */,
 				9D79CA3B26E4C45300E3729C /* UIColor+Hue.swift in Sources */,
 				9D79CA2F26E4AB4C00E3729C /* Header.swift in Sources */,
+				9DFABB9226F0EA2500339D04 /* DashLine.swift in Sources */,
 				8834429F26EC794C0082A480 /* ScanViewController.swift in Sources */,
 				9D79CA4226E65AAD00E3729C /* OrderTableViewCell.swift in Sources */,
 				883442A326EC794C0082A480 /* ScanWrapper.swift in Sources */,
@@ -721,6 +734,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D8965R53VV;
 				INFOPLIST_FILE = TestTwo/Info.plist;
@@ -732,6 +746,8 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yaoshibang.SpectrumBD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestTwo/APPRelatedModules/OrdersRelatedModules/TestTwo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -743,6 +759,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D8965R53VV;
 				INFOPLIST_FILE = TestTwo/Info.plist;
@@ -754,6 +771,7 @@
 				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yaoshibang.SpectrumBD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TestTwo/APPRelatedModules/OrdersRelatedModules/TestTwo-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -13,6 +13,7 @@ class OrderTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = UIColor(hex: "#F5F5F5")
+        self.backgroundColor = UIColor(hex: "#F5F5F5")
         addSubviews()
         defineLayout()
     }
@@ -22,6 +23,7 @@ class OrderTableViewCell: UITableViewCell {
     }
     
     func addSubviews() -> Void {
+        contentView.addSubview(dashLine)
         contentView.addSubview(containView)
         containView.addSubview(clinicNameTitle)
         containView.addSubview(rightArrow)
@@ -34,8 +36,14 @@ class OrderTableViewCell: UITableViewCell {
         containView.addSubview(orderAmountLabel)
     }
     func defineLayout() -> Void {
+        dashLine.snp.makeConstraints { ConstraintMaker in
+            ConstraintMaker.left.equalTo(contentView).offset(10.0)
+            ConstraintMaker.width.equalTo(contentView).offset(5.0)
+            ConstraintMaker.top.equalTo(contentView.snp.top)
+            ConstraintMaker.bottom.equalTo(contentView)
+        }
         containView.snp.makeConstraints { ConstraintMaker in
-            ConstraintMaker.left.equalTo(contentView).offset(15.0)
+            ConstraintMaker.left.equalTo(contentView).offset(25.0)
             ConstraintMaker.right.equalTo(contentView).offset(-15.0)
             ConstraintMaker.top.equalTo(contentView.snp.top).offset(0.0)
             ConstraintMaker.bottom.equalTo(contentView).offset(-10.0)
@@ -99,6 +107,11 @@ class OrderTableViewCell: UITableViewCell {
     
 
 //    MARK: lazy init
+    
+    lazy var dashLine: DashLine = {
+        let line = DashLine()
+        return line
+    }()
     
     lazy var containView:UIView = {
         let view = UIView()

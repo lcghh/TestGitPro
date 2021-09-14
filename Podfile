@@ -9,5 +9,6 @@ pod 'Moya'
 pod 'Kingfisher'
 pod 'SnapKit'
 pod 'Toast-Swift'
+pod "Qiniu", "~> 8.3.1"
 
 end
